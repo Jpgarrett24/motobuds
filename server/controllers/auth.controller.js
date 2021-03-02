@@ -1,3 +1,5 @@
+const config = require('config');
+const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
 
@@ -12,7 +14,9 @@ module.exports = {
         const validPassword = await bcrypt.compare(req.body.password, user.password);
         if (!validPassword) return res.status(400).send({ message: 'Invalid email or password' });
 
-        res.send({ message: 'Thats that shit I DO like.' })
+        const token = jwt.sign({ _id: user._id }, config.get('jwtPrivateKey'));
+
+        res.send({ message: 'Thats that shit I DO like.', token })
 
     }
 
