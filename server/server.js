@@ -10,5 +10,6 @@ app.use(express.json());
 app.use(cors());
 
 require('./routes/trip.routes')(app);
+require('./routes/user.routes')(app);
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));

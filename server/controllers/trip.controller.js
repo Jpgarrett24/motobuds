@@ -53,4 +53,4 @@ module.exports = {
                 res.json(err);
             });
     },
-}
+};

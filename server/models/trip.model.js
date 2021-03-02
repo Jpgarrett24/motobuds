@@ -4,7 +4,7 @@ const TripSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, '{Path} is required.']
+            required: [true, '{PATH} is required.']
         },
         startDate: {
             type: Date,

@@ -5,6 +5,7 @@ module.exports = (db_name) => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
+        useCreateIndex: true,
     })
         .then(() => {
             console.log(`Successfully connected to ${db_name}`);
