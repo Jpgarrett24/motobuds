@@ -11,5 +11,6 @@ app.use(cors());
 
 require('./routes/trip.routes')(app);
 require('./routes/user.routes')(app);
+require('./routes/auth.routes')(app);
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));

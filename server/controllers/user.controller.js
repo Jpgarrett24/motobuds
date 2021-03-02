@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 module.exports = {
     async create(req, res) {
         const regex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/);
-        if (!regex.test(req.body.password)) return res.status(400).json({ 'message': 'Password must be at least 8 characters long, and contain: 1 uppercase letter, 1 lowercase letter, 1 number.' })
+        if (!regex.test(req.body.password)) return res.status(400).send({ message: 'Password must be at least 8 characters long, and contain: 1 uppercase letter, 1 lowercase letter, 1 number.' })
 
         let newUser = req.body;
 
@@ -13,7 +13,7 @@ module.exports = {
         newUser = { ...newUser, password: newPassword };
 
         const testUser = await User.findOne({ email: req.body.email });
-        if (testUser) return res.status(400).json({ 'message': 'User email already exsits.' });
+        if (testUser) return res.status(400).send({ message: 'User email already exsits.' });
 
 
         User.create(newUser)
