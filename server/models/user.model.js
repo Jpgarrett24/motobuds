@@ -26,7 +26,11 @@ const UserSchema = new mongoose.Schema(
             type: String,
             required: true,
             minlength: [8, '{PATH} must be {MINLENGTH} characters long.'],
-        }
+        },
+        active: {
+            type: Boolean,
+            default: false,
+        },
     }
 );
 

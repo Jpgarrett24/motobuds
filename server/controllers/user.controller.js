@@ -1,3 +1,5 @@
+const config = require('config');
+const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
 
@@ -18,7 +20,8 @@ module.exports = {
 
         User.create(newUser)
             .then((user) => {
-                res.json(user);
+                const token = jwt.sign({ _id: user._id, firstName: user.firstName, lastName: user.lastName }, config.get('jwtPrivateKey'));
+                res.status(200).json({ user, token });
             })
             .catch((err) => {
                 res.status(400).json(err);
