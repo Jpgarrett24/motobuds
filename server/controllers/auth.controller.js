@@ -1,5 +1,3 @@
-const config = require('config');
-const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
 
@@ -16,9 +14,9 @@ module.exports = {
 
         // if (!user.active) return res.status(400).send({ message: "Please confirm your email address to login." })
 
-        const token = jwt.sign({ _id: user._id, firstName: user.firstName, lastName: user.lastName }, config.get('jwtPrivateKey'));
+        const token = user.generateAuthToken();
 
-        res.send({ message: 'Thats that shit I DO like.', token })
+        res.header('x-auth-token', token).send(user);
 
     },
 

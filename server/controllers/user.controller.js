@@ -1,5 +1,3 @@
-const config = require('config');
-const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
 
@@ -20,7 +18,7 @@ module.exports = {
 
         User.create(newUser)
             .then((user) => {
-                const token = jwt.sign({ _id: user._id, firstName: user.firstName, lastName: user.lastName }, config.get('jwtPrivateKey'));
+                const token = user.generateAuthToken();
                 res.status(200).json({ user, token });
             })
             .catch((err) => {
