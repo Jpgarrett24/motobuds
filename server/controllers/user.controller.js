@@ -26,6 +26,11 @@ module.exports = {
             });
     },
 
+    async getActive(req, res) {
+        const user = await User.findById(req.user._id).select('-password');
+        res.send(user);
+    },
+
     getAll(req, res) {
         User.find()
             .then((users) => {

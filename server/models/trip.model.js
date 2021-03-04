@@ -16,7 +16,7 @@ const TripSchema = new mongoose.Schema(
                 type: String,
             },
             location: {
-                type: { type: String, enum: ['Point'], required: true },
+                type: { type: String, enum: ['Point'], required: [true, 'Starting location is required'] },
                 coordinates: {
                     type: [Number],
                     required: true,
@@ -28,7 +28,7 @@ const TripSchema = new mongoose.Schema(
                 type: String,
             },
             location: {
-                type: { type: String, enum: ['Point'], required: true },
+                type: { type: String, enum: ['Point'], required: [true, 'End location is required'] },
                 coordinates: {
                     type: [Number],
                     required: true,
