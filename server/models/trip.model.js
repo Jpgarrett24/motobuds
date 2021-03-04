@@ -35,6 +35,11 @@ const TripSchema = new mongoose.Schema(
                 }
             }
         },
+        creator: {
+            type: mongoose.Schema.ObjectId,
+            ref: 'User',
+            required: [true, 'User is required.']
+        },
         riders: [{
             type: mongoose.Schema.ObjectId,
             ref: 'User',

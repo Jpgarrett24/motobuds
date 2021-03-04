@@ -12,8 +12,6 @@ module.exports = {
         const validPassword = await bcrypt.compare(req.body.password, user.password);
         if (!validPassword) return res.status(400).send({ message: 'Invalid email or password' });
 
-        // if (!user.active) return res.status(400).send({ message: "Please confirm your email address to login." })
-
         const token = user.generateAuthToken();
 
         res.header('x-auth-token', token).send(user);
