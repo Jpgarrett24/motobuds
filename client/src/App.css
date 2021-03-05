@@ -212,3 +212,85 @@ header{
 #signIn form button:hover{
   transform: scale(1.2);
 }
+
+#register{
+  padding: 50px 100px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+#register h2{
+  font-size: 35pt;
+  text-align: left;
+}
+
+#register form{
+  color: #fffff0;
+  background-color: #2146bf;
+  border-radius: 100px;
+  display: inline-block;
+  margin: 30px 0 0 0;
+  padding: 25px 0;
+  width: 75%;
+  text-align: left;
+}
+
+#register form .nameField{
+  display: inline-block;
+  width: 40%;
+}
+
+#register form label{
+  display: block;
+  text-align: left;
+  margin: 25px 0 0 0;
+  font-size: 20pt;
+  padding-left: 15%;
+}
+
+#register form input{
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  border-bottom: solid 3px black;
+  color: #fffff0;
+  display: inline-block;
+  margin: 15px 0;
+  padding: 15px;
+  width: 65%;
+  font-size: 20pt;
+  margin-left: 15%;
+}
+
+#register #firstName, #register #lastName{
+  margin-left: 0%;
+}
+
+#register form .passwordVisible{
+  position: relative;
+  top: 10px;
+  right: 35px;
+  font-size: 20pt;
+  transition: ease-in-out all 200ms;
+}
+#register form .passwordVisible:hover{
+  transform: scale(1.5);
+}
+
+#register form div{
+  text-align: center;
+}
+
+#register form button{
+  border-radius: 50px;
+  display: inline-block;
+  margin: 30px 0;
+  font-size: 18pt;
+  font-weight: bold;
+  height: 50px;
+  width: 300px;
+  transition: all 200ms ease-in-out;
+}
+
+#register form button:hover{
+  transform: scale(1.2);
+}
