@@ -21,7 +21,7 @@ const LoginNavbar = () => {
                 </Link>
                 <Link>
                     <FaUserPlus className="loginNavIcons" />
-                    <span>Register</span>
+                    <span>Sign Up</span>
                 </Link>
                 <Link>
                     <FaInfoCircle className="loginNavIcons" />
