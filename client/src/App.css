@@ -6,6 +6,18 @@ body{
   background-color: #f5f5f5;
 }
 
+main{
+  margin-top: 75px;
+  min-height: 1000px;
+}
+
+header{
+  background-color: #f5f5f5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 #loginNav{
   height: 75px;
   text-align: center;
@@ -15,6 +27,11 @@ body{
   display: inline-block;
   vertical-align: top;
   margin: 15px 35px 0 35px;
+  transition: all 200ms ease-in-out;
+}
+
+#loginNav a:hover{
+  transform: scale(1.25);
 }
 
 #loginNav a:nth-of-type(3){
@@ -47,4 +64,74 @@ body{
 }
 #loginNav a:nth-of-type(5) .loginNavIcons{
   color: #ff6f00;
+}
+
+#backgroundLogo{
+  background-image: url('./assets/motobuds_logo.png');
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  left: 0px;
+  min-height: 100vh;
+  opacity: .1;
+  position: fixed;
+  top: 75px;
+  width: 100%;
+  z-index: -1;
+}
+
+#LoginAndReg #home div{
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+#LoginAndReg #home div h1{
+  font-size: 25pt;
+}
+
+#LoginAndReg #home div p{
+  font-size: 1.75vw;
+  padding: 0 0 0 3vw;
+  text-align: left;
+}
+
+#LoginAndReg #home a{
+  background-color: #26a300;
+  border-radius: 30px;
+  display: inline-block;
+  font-size: 15pt;
+  font-weight: bold;
+  padding: 10px 25px;
+  width: 250px;
+  transition: all 200ms ease-in-out;
+}
+
+#LoginAndReg #home a:hover{
+  transform: scale(1.2);
+}
+
+#LoginAndReg #home div:nth-of-type(2){
+  width: 35%;
+  padding: 50px 25px;
+}
+
+#LoginAndReg #home div:nth-of-type(3){
+  width: 60%;
+  padding: 50px 0 0 0;
+}
+
+#arrowIcon{
+  vertical-align: top;
+  font-size: 50pt;
+  margin: 85px 20px 0 20px;
+}
+
+#LoginAndReg #home div img:nth-of-type(1){
+  width: 150px;
+}
+#LoginAndReg #home div img:nth-of-type(2){
+  border: solid black 5px;
+  border-radius: 50%;
+  width: 400px;
 }
