@@ -1,5 +1,7 @@
 * {
-  font-family: 'Comfortaa', monospace;;
+  font-family: 'Comfortaa', monospace;
+  padding: 0;
+  margin: 0;
 }
 
 body{
@@ -87,13 +89,15 @@ header{
 }
 
 #LoginAndReg #home div h1{
-  font-size: 25pt;
+  font-size: 35pt;
+  margin: 30px 0;
 }
 
 #LoginAndReg #home div p{
   font-size: 1.75vw;
   padding: 0 0 0 3vw;
   text-align: left;
+  margin: 30px 0;
 }
 
 #LoginAndReg #home a{
@@ -118,7 +122,7 @@ header{
 
 #LoginAndReg #home div:nth-of-type(3){
   width: 60%;
-  padding: 50px 0 0 0;
+  padding: 150px 0 0 0;
 }
 
 #arrowIcon{
@@ -134,4 +138,48 @@ header{
   border: solid black 5px;
   border-radius: 50%;
   width: 400px;
+}
+
+#signIn{
+  padding: 50px 100px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+#signIn h2{
+  font-size: 35pt;
+  text-align: left;
+}
+
+#signIn form{
+  color: #fffff0;
+  background-color: #2146bf;
+  border-radius: 100px;
+  display: inline-block;
+  margin: 30px 0 0 0;
+  padding: 25px 0;
+  width: 75%;
+  text-align: left;
+}
+
+#signIn form label{
+  display: block;
+  text-align: left;
+  margin: 25px 0 0 0;
+  font-size: 20pt;
+  padding-left: 15%;
+}
+
+#signIn form input{
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  display: inline-block;
+  margin: 15px 0;
+  width: 50%;
+  font-size: 20pt;
+  margin-left: 15%;
+}
+
+#signIn form .passwordVisible{
+  font-size: 20pt;
 }

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import { FaLongArrowAltRight } from 'react-icons/fa'
+import { FaLongArrowAltRight, FaEye, FaEyeSlash } from 'react-icons/fa'
 
 import LoginNavbar from '../components/LoginNavbar';
 import phone from '../assets/phone.png';
 import ride from '../assets/group_ride.png';
 
 const LoginAndReg = () => {
+    const [password, setPassword] = useState('password')
+
     return (
         <>
             <LoginNavbar />
@@ -24,6 +26,16 @@ const LoginAndReg = () => {
                         <FaLongArrowAltRight id="arrowIcon" />
                         <img src={ride} alt="A group motorcyle ride" />
                     </div>
+                </section>
+                <section id="signIn">
+                    <h2>Sign In</h2>
+                    <form action="">
+                        <label htmlFor="email">Email</label>
+                        <input name="email" id="email" type="email" placeholder="example@email.com" />
+                        <label htmlFor="">Password</label>
+                        <input name="password" id="password" type={password} placeholder="password" />
+                        <span>{password === 'password' ? <FaEye className="passwordVisible" /> : <FaEyeSlash className="passwordVisible" />}</span>
+                    </form>
                 </section>
             </main>
         </>
