@@ -173,13 +173,42 @@ header{
 #signIn form input{
   background-color: rgba(255, 255, 255, 0);
   border: none;
+  border-bottom: solid 3px black;
+  color: #fffff0;
   display: inline-block;
   margin: 15px 0;
-  width: 50%;
+  padding: 15px;
+  width: 65%;
   font-size: 20pt;
   margin-left: 15%;
 }
 
 #signIn form .passwordVisible{
+  position: relative;
+  top: 10px;
+  right: 35px;
   font-size: 20pt;
+  transition: ease-in-out all 200ms;
+}
+#signIn form .passwordVisible:hover{
+  transform: scale(1.5);
+}
+
+#signIn form div{
+  text-align: center;
+}
+
+#signIn form button{
+  border-radius: 50px;
+  display: inline-block;
+  margin: 30px 0;
+  font-size: 18pt;
+  font-weight: bold;
+  height: 50px;
+  width: 300px;
+  transition: all 200ms ease-in-out;
+}
+
+#signIn form button:hover{
+  transform: scale(1.2);
 }
