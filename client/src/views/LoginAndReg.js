@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from '../assets/motobuds_logo.png';
+import LoginNavbar from '../components/LoginNavbar';
 
 const LoginAndReg = () => {
     return (
         <>
+            <LoginNavbar />
             <main>
             </main>
         </>
