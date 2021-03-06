@@ -288,7 +288,7 @@ header{
 #register form button{
   border-radius: 50px;
   display: inline-block;
-  margin: 30px 0 0 0;
+  margin: 15px 0 0 0;
   font-size: 18pt;
   font-weight: bold;
   height: 50px;
@@ -298,4 +298,30 @@ header{
 
 #register form button:hover{
   transform: scale(1.2);
+}
+
+#register h4{
+  margin: 15px 0 0 0;
+}
+
+#register #validator{
+  display: inline-block;
+  text-align: left;
+}
+
+#register #validator span{
+  display: block;
+  font-size: 12pt;
+  margin: 5px;
+}
+
+.valid, .invalid{
+  margin: 0 10px;
+}
+
+#register #validator .valid{
+  color: #11ff00;
+}
+#register #validator .invalid{
+  color: #ff0000;
 }

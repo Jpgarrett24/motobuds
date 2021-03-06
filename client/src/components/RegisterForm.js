@@ -15,26 +15,29 @@ const RegisterForm = ({ password, setPassword }) => {
     const validatePassword = (field) => {
         if (field === 'length') {
             return (
-                formData.password.length >= 8 ? <FaCheck /> : <FaBan />
+                formData.password.length >= 8 ? <FaCheck className="valid" /> : <FaBan className="invalid" />
             )
         }
         else if (field === 'uppercase') {
             for (let i = 0; i < formData.password.length; i++) {
-                if ((formData.password[i]).match(/^[A-Z]*$/)) return <FaCheck />
+                if ((formData.password[i]).match(/^[A-Z]*$/)) return <FaCheck className="valid" />
             }
-            return <FaBan />
+            return <FaBan className="invalid" />
         }
         else if (field === 'lowercase') {
             for (let i = 0; i < formData.password.length; i++) {
-                if ((formData.password[i]).match(/^[a-z]*$/)) return <FaCheck />
+                if ((formData.password[i]).match(/^[a-z]*$/)) return <FaCheck className="valid" />
             }
-            return <FaBan />
+            return <FaBan className="invalid" />
         }
         else if (field === 'number') {
             for (let i = 0; i < formData.password.length; i++) {
-                if ((formData.password[i]).match(/^[0-9]*$/)) return <FaCheck />
+                if ((formData.password[i]).match(/^[0-9]*$/)) return <FaCheck className="valid" />
             }
-            return <FaBan />
+            return <FaBan className="invalid" />
+        }
+        else if (field === 'match') {
+            return formData.password === formData.confirm ? <FaCheck className="valid" /> : <FaBan className="invalid" />
         }
         return;
     };
@@ -100,11 +103,12 @@ const RegisterForm = ({ password, setPassword }) => {
                 <FaEyeSlash className="passwordVisible" onClick={() => setPassword('password')} />}
             <div>
                 <h4>Password Requirements:</h4>
-                <p>
-                    <span>{validatePassword('length')} Minimum 8 characters</span>
-                    <span>{validatePassword('uppercase')} Contains an uppercase letter</span>
-                    <span>{validatePassword('lowercase')} Contains a lowercase letter</span>
+                <p id="validator">
+                    <span>{validatePassword('length')}Minimum 8 characters</span>
+                    <span>{validatePassword('uppercase')}Contains an uppercase letter</span>
+                    <span>{validatePassword('lowercase')}Contains a lowercase letter</span>
                     <span>{validatePassword('number')}Contains a number</span>
+                    <span>{validatePassword('match')}Passwords Match</span>
                 </p>
             </div>
             <div>
