@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { Link, Element } from 'react-scroll';
-import { FaLongArrowAltRight } from 'react-icons/fa'
+import { FaLongArrowAltRight } from 'react-icons/fa';
+import { Redirect } from 'react-router-dom';
 
 import LoginForm from '../components/LoginForm';
 import LoginNavbar from '../components/LoginNavbar';
 import phone from '../assets/phone.png';
 import ride from '../assets/group_ride.png';
 import RegisterForm from '../components/RegisterForm';
+import Footer from '../components/Footer';
 
 const LoginAndReg = () => {
-    const [password, setPassword] = useState('password')
+    const [password, setPassword] = useState('password');
 
     return (
         <>
@@ -44,6 +46,7 @@ const LoginAndReg = () => {
                     </section>
                 </Element>
             </main>
+            <Footer />
         </>
     );
 };

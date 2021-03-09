@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FaBan, FaCheck, FaEye, FaEyeSlash } from 'react-icons/fa';
 
+import usersApi from '../api/users';
+
 const RegisterForm = ({ password, setPassword }) => {
     const [formData, setFormData] = useState(
         {
@@ -11,6 +13,11 @@ const RegisterForm = ({ password, setPassword }) => {
             confirm: "",
         }
     );
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        usersApi.register(formData);
+    };
 
     const validatePassword = (field) => {
         if (field === 'length') {
@@ -43,7 +50,7 @@ const RegisterForm = ({ password, setPassword }) => {
     };
 
     return (
-        <form action="">
+        <form onSubmit={handleSubmit}>
             <div className="nameField">
                 <label htmlFor="firstName">First Name</label>
                 <input

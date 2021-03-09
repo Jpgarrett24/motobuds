@@ -47,7 +47,7 @@ const LoginNavbar = () => {
                 <Link
                     duration={500}
                     smooth={true}
-                    offset={-50}
+                    offset={0}
                     to="info"
                 >
                     <FaInfoCircle className="loginNavIcons" />
