@@ -6,7 +6,7 @@ import AuthContext from '../auth/AuthContext';
 import usersApi from '../api/users';
 
 const RegisterForm = ({ password, setPassword }) => {
-    const { user, setUser } = useContext(AuthContext);
+    const { setUser } = useContext(AuthContext);
 
     const [formData, setFormData] = useState(
         {

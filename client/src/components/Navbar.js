@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
-import { FaHome, FaUserPlus, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+import { FaHome, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+import { MdAddLocation } from "react-icons/md";
 
 import AuthContext from '../auth/AuthContext';
 import logo from '../assets/motobuds_title.png';
@@ -29,8 +30,8 @@ const Navbar = () => {
                     <img src={logo} alt="MotoBuds logo." />
                 </a>
                 <a href=".">
-                    <FaUserPlus className="homeNavIcons" />
-                    <span>Sign Up</span>
+                    <MdAddLocation className="homeNavIcons" />
+                    <span>Add Ride</span>
                 </a>
                 <a href="." onClick={handleLogout}>
                     <FaSignOutAlt className="homeNavIcons" />
