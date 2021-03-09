@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
+import AuthContext from './auth/AuthContext';
 import LoginAndReg from './views/LoginAndReg';
 import Homescreen from './views/Homescreen';
 
 function App() {
-  console.log(localStorage.getItem('auth_token'));
+  const [user, setUser] = useState(null);
+
+  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   return (
     <Router>
-      <div className="App">
-        <Switch>
-          <Route path="/" exact component={LoginAndReg}>
-            {localStorage.getItem('auth_token') && <Redirect to="/home" />}
-          </Route>
-          <Route path="/home" component={Homescreen}>
-            {!localStorage.getItem('auth_token') && <Redirect to="/" />}
-          </Route>
-        </Switch>
-      </div>
+      <AuthContext.Provider value={value}>
+        <div className="App">
+          <Switch>
+            <Route path="/" exact component={LoginAndReg}>
+              {user && <Redirect to="/home" />}
+            </Route>
+            <Route path="/home" component={Homescreen}>
+              {!user && <Redirect to="/" />}
+            </Route>
+          </Switch>
+        </div>
+      </AuthContext.Provider>
     </Router>
   );
 }

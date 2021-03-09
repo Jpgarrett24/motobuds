@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Element } from 'react-scroll';
 import { FaLongArrowAltRight } from 'react-icons/fa';
-import { Redirect } from 'react-router-dom';
 
 import LoginForm from '../components/LoginForm';
 import LoginNavbar from '../components/LoginNavbar';

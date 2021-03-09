@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
+import AuthContext from '../auth/AuthContext';
 import auth from '../api/auth';
 
 const LoginForm = ({ password, setPassword }) => {
+    const { setUser } = useContext(AuthContext);
+
     const [formData, setFromData] = useState({
         email: "",
         password: ""
@@ -17,6 +19,8 @@ const LoginForm = ({ password, setPassword }) => {
         const result = await auth.login(formData);
         if (!result.data) return setError('Invalid username and/or password.');
         localStorage.setItem('auth_token', result.data.token);
+        const verification = await auth.verify(result.data.token);
+        setUser(verification.data);
     };
 
     return (

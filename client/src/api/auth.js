@@ -6,7 +6,13 @@ const auth = {
         return axios.post(`${settings.dev.apiUrl}/login`, formData)
             .then((res) => res)
             .catch((err) => err)
-    }
+    },
+
+    verify: function async(token) {
+        return axios.post(`${settings.dev.apiUrl}/verify`, { token })
+            .then((res) => res)
+            .catch((err) => err);
+    },
 }
 
 export default auth;
