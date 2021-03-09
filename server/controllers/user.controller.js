@@ -10,7 +10,7 @@ module.exports = {
         newUser = { ...newUser, password: newPassword };
 
         const testUser = await User.findOne({ email: req.body.email });
-        if (testUser) return res.status(400).send({ message: 'User email already exsits.' });
+        if (testUser) return res.status(400).send({ errors: { message: 'User email address already registered.' } });
 
 
         User.create(newUser)

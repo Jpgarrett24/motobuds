@@ -14,9 +14,10 @@ const RegisterForm = ({ password, setPassword }) => {
         }
     );
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        usersApi.register(formData);
+        let user = await usersApi.register(formData);
+        console.log(user);
     };
 
     const validatePassword = (field) => {

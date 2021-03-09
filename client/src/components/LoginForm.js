@@ -12,12 +12,13 @@ const LoginForm = ({ password, setPassword }) => {
         password: ""
     });
 
-    const [error, setError] = useState(false);
+    const [errors, setErrors] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         const result = await auth.login(formData);
-        if (!result.data) return setError('Invalid username and/or password.');
+        console.log(result);
+        if (result.status >= 400) return setErrors(result.data.errors);
         localStorage.setItem('auth_token', result.data.token);
         const verification = await auth.verify(result.data.token);
         setUser(verification.data);
@@ -34,7 +35,7 @@ const LoginForm = ({ password, setPassword }) => {
                     <FaEye className="passwordVisible" onClick={() => setPassword('text')} /> :
                     <FaEyeSlash className="passwordVisible" onClick={() => setPassword('password')} />}
             </span>
-            {error && <p>{error}</p>}
+            {errors && <p>{errors?.message}</p>}
             <div>
                 <button>Log In</button>
             </div>
