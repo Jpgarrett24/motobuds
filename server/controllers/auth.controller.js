@@ -1,5 +1,7 @@
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
+const config = require('config');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
     async login(req, res) {
@@ -15,5 +17,16 @@ module.exports = {
 
         res.header('x-auth-token', token).send({ token, user });
     },
+
+    async verify(req, res) {
+        let token = req.body.token;
+        if (!token) return res.status(401).send('Access denied. No token provided.');
+        try {
+            const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
+            res.status(200).send(decoded);
+        } catch (error) {
+            res.status(400).send('Invalid token.');
+        }
+    }
 
 }

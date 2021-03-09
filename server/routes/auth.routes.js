@@ -3,4 +3,5 @@ const authController = require('../controllers/auth.controller');
 
 module.exports = (app) => {
     app.post('/api/login', validatePassword, authController.login);
+    app.post('/api/verify', authController.verify);
 };
