@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FaBan, FaCheck, FaEye, FaEyeSlash } from 'react-icons/fa';
 
+import auth from '../api/auth';
+import AuthContext from '../auth/AuthContext';
 import usersApi from '../api/users';
 
 const RegisterForm = ({ password, setPassword }) => {
+    const { user, setUser } = useContext(AuthContext);
+
     const [formData, setFormData] = useState(
         {
             firstName: "",
@@ -14,10 +18,15 @@ const RegisterForm = ({ password, setPassword }) => {
         }
     );
 
+    const [errors, setErrors] = useState(false);
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        let user = await usersApi.register(formData);
-        console.log(user);
+        let result = await usersApi.register(formData);
+        if (result.status >= 400) return setErrors(result.data.errors);
+        localStorage.setItem('auth_token', result.data);
+        let newUser = await auth.verify(result.data);
+        return setUser(newUser);
     };
 
     const validatePassword = (field) => {
@@ -120,6 +129,13 @@ const RegisterForm = ({ password, setPassword }) => {
                 </p>
             </div>
             <div>
+                {errors &&
+                    <>
+                        <p id="errors">{errors?.message}</p>
+                        <p id="errors">{errors?.firstName?.message}</p>
+                        <p id="errors">{errors?.lastName?.message}</p>
+                    </>
+                }
                 <button>Sign Up</button>
             </div>
         </form>

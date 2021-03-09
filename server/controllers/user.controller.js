@@ -16,7 +16,7 @@ module.exports = {
         User.create(newUser)
             .then((user) => {
                 const token = user.generateAuthToken();
-                res.header('x-auth-token', token).status(200).send(user);
+                res.header('x-auth-token', token).status(200).send(token);
             })
             .catch((err) => {
                 res.status(400).json(err);
