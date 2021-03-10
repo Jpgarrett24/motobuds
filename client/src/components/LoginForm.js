@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
-import AuthContext from '../auth/AuthContext';
-import auth from '../api/auth';
+import authApi from '../api/auth';
+import useAuth from '../auth/useAuth';
 
 const LoginForm = ({ password, setPassword }) => {
-    const { setUser } = useContext(AuthContext);
+    const auth = useAuth();
 
     const [formData, setFromData] = useState({
         email: "",
@@ -16,12 +16,10 @@ const LoginForm = ({ password, setPassword }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const result = await auth.login(formData);
-        console.log(result);
+        const result = await authApi.login(formData);
         if (result.status >= 400) return setErrors(result.data.errors);
-        localStorage.setItem('auth_token', result.data.token);
-        const verification = await auth.verify(result.data.token);
-        setUser(verification.data);
+
+        auth.logIn(result.data.token);
     };
 
     return (

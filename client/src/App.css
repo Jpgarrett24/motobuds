@@ -11,6 +11,7 @@ body{
 main{
   margin-top: 75px;
   min-height: 1000px;
+  text-align: center;
 }
 
 header{
@@ -409,4 +410,8 @@ footer img{
 }
 #homeNav a:nth-of-type(5) .homeNavIcons{
   color: #ff6f00;
+}
+
+#loadingGIF{
+  margin: 0;
 }

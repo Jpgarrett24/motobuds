@@ -9,16 +9,30 @@ import Homescreen from './views/Homescreen';
 
 function App() {
   const [user, setUser] = useState(null);
-  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+  const [location, setLocation] = useState(null);
+  const value = useMemo(() => ({ user, setUser, location, setLocation }), [user, setUser, location, setLocation]);
 
   const getUser = async () => {
     let result = await auth.verify(localStorage.getItem('auth_token'));
     if (result.status >= 400) return;
     return setUser(result.data);
-  }
+  };
+
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLocation({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      });
+    });
+  };
+
   useEffect(() => {
     getUser();
+    getLocation();
   }, []);
+
+  console.log(location);
 
   return (
     <Router>

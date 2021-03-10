@@ -1,12 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { FaBan, FaCheck, FaEye, FaEyeSlash } from 'react-icons/fa';
 
-import auth from '../api/auth';
-import AuthContext from '../auth/AuthContext';
 import usersApi from '../api/users';
+import useAuth from '../auth/useAuth';
 
 const RegisterForm = ({ password, setPassword }) => {
-    const { setUser } = useContext(AuthContext);
+    const auth = useAuth();
 
     const [formData, setFormData] = useState(
         {
@@ -24,9 +23,7 @@ const RegisterForm = ({ password, setPassword }) => {
         event.preventDefault();
         let result = await usersApi.register(formData);
         if (result.status >= 400) return setErrors(result.data.errors);
-        localStorage.setItem('auth_token', result.data);
-        let newUser = await auth.verify(result.data);
-        return setUser(newUser);
+        auth.logIn(result.data);
     };
 
     const validatePassword = (field) => {

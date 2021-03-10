@@ -1,7 +1,7 @@
 import axios from 'axios';
 import settings from '../config/settings';
 
-const auth = {
+const authApi = {
     login: function async(formData) {
         return axios.post(`${settings.dev.apiUrl}/login`, formData)
             .then((res) => res)
@@ -15,4 +15,4 @@ const auth = {
     },
 }
 
-export default auth;
+export default authApi;

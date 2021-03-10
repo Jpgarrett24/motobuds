@@ -1,42 +1,38 @@
-import React, { useContext } from 'react';
-import { Redirect } from 'react-router-dom';
-import { FaHome, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
-import { MdAddLocation } from "react-icons/md";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaSignOutAlt } from 'react-icons/fa';
+import { GiFullMotorcycleHelmet } from "react-icons/gi";
+import { MdAddLocation } from 'react-icons/md';
+import { AiFillDashboard } from 'react-icons/ai';
 
-import AuthContext from '../auth/AuthContext';
 import logo from '../assets/motobuds_title.png';
+import useAuth from '../auth/useAuth';
 
 const Navbar = () => {
-    const { setUser } = useContext(AuthContext);
-
-    const handleLogout = () => {
-        localStorage.removeItem('auth_token');
-        setUser(null);
-        <Redirect to="/" />
-    }
+    const auth = useAuth();
 
     return (
         <header id="homeNav">
             <nav>
-                <a href=".">
-                    <FaHome className="homeNavIcons" />
-                    <span>Home</span>
-                </a>
-                <a href=".">
-                    <FaSignInAlt className="homeNavIcons" />
-                    <span>Sign In</span>
-                </a>
-                <a href=".">
+                <Link to="/home">
+                    <AiFillDashboard className="homeNavIcons" />
+                    <span>Dashboard</span>
+                </Link>
+                <Link to="/home">
+                    <GiFullMotorcycleHelmet className="homeNavIcons" />
+                    <span>My Rides</span>
+                </Link>
+                <Link to="/home">
                     <img src={logo} alt="MotoBuds logo." />
-                </a>
-                <a href=".">
+                </Link>
+                <Link to="/home">
                     <MdAddLocation className="homeNavIcons" />
                     <span>Add Ride</span>
-                </a>
-                <a href="." onClick={handleLogout}>
+                </Link>
+                <Link to="/home" onClick={auth.logOut}>
                     <FaSignOutAlt className="homeNavIcons" />
                     <span>Log Out</span>
-                </a>
+                </Link>
             </nav>
         </header>
     )
