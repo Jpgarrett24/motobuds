@@ -27,8 +27,6 @@ const Homescreen = () => {
         }
     }, [auth.location, trips])
 
-    console.log(auth.location);
-
     return (
         <>
             <Navbar />
@@ -37,9 +35,12 @@ const Homescreen = () => {
                 {loading ? <img src={moto} alt="Animation of a moving motorcylce to indiate loading." id="loadingGIF" /> :
                     <section>
                         {trips.map((trip, idx) => {
+                            let date = new Date(trip.startDate);
+                            date = new Date(date.setSeconds(0));
+                            date = new Date(date.setMilliseconds(0))
                             return (
                                 <p key={idx}>
-                                    {trip.name}
+                                    {trip.name} {date.toDateString()} {date.toLocaleTimeString()}
                                 </p>
                             )
                         })}
