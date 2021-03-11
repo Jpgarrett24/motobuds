@@ -22,8 +22,13 @@ const TripCard = ({ trip }) => {
 
     const formatTime = (rawDate) => {
         let date = new Date(rawDate);
-        console.log(date.getHours());
-        console.log(date.getMinutes());
+        let AMPM = 'AM';
+        let hour = date.getHours();
+        if (hour > 12) {
+            hour = date.getHours() - 12;
+            AMPM = 'PM'
+        }
+        return (`${hour}:${date.getMinutes()} ${AMPM}`);
     };
 
     formatTime(trip.startDate)
@@ -32,6 +37,7 @@ const TripCard = ({ trip }) => {
         <div id="tripCard">
             <h3>{trip.name}</h3>
             <p>{formatDate(trip.startDate)}</p>
+            <p>{formatTime(trip.startDate)}</p>
             <span><FaUserFriends /> {trip.riders.length}</span>
         </div>
     );
