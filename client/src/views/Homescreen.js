@@ -5,6 +5,7 @@ import moto from '../assets/animations/motoGIF.gif';
 import Navbar from '../components/Navbar';
 import tripsApi from '../api/trips';
 import useAuth from '../auth/useAuth';
+import TripCard from '../components/TripCard';
 
 const Homescreen = () => {
     const [loading, setLoading] = useState(true);
@@ -35,13 +36,8 @@ const Homescreen = () => {
                 {loading ? <img src={moto} alt="Animation of a moving motorcylce to indiate loading." id="loadingGIF" /> :
                     <section>
                         {trips.map((trip, idx) => {
-                            let date = new Date(trip.startDate);
-                            date = new Date(date.setSeconds(0));
-                            date = new Date(date.setMilliseconds(0))
                             return (
-                                <p key={idx}>
-                                    {trip.name} {date.toDateString()} {date.toLocaleTimeString()}
-                                </p>
+                                <TripCard key={trip._id} trip={trip} />
                             )
                         })}
                     </section>
