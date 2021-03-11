@@ -1,5 +1,6 @@
-import React from 'react'
-import { FaUserFriends } from 'react-icons/fa'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaUserFriends } from 'react-icons/fa';
 
 const TripCard = ({ trip }) => {
     const formatDate = (rawDate) => {
@@ -34,12 +35,14 @@ const TripCard = ({ trip }) => {
     formatTime(trip.startDate)
 
     return (
-        <div id="tripCard">
-            <h3>{trip.name}</h3>
-            <p>{formatDate(trip.startDate)}</p>
-            <p>{formatTime(trip.startDate)}</p>
-            <span><FaUserFriends /> {trip.riders.length}</span>
-        </div>
+        <Link to={`/rides/${trip._id}`}>
+            <div id="tripCard">
+                <h3>{trip.name}</h3>
+                <p>{formatDate(trip.startDate)}</p>
+                <p>{formatTime(trip.startDate)}</p>
+                <span><FaUserFriends /> {trip.riders.length}</span>
+            </div>
+        </Link>
     );
 };
 

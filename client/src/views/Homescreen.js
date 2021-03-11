@@ -34,7 +34,7 @@ const Homescreen = () => {
             <main>
                 <div id="backgroundLogo" />
                 {loading ? <img src={moto} alt="Animation of a moving motorcylce to indiate loading." id="loadingGIF" /> :
-                    <section>
+                    <section id="dashboard">
                         {trips.map((trip, idx) => {
                             return (
                                 <TripCard key={trip._id} trip={trip} />

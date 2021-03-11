@@ -415,3 +415,23 @@ footer img{
 #loadingGIF{
   margin: 0;
 }
+
+#dashboard a{
+  text-decoration: none;
+}
+
+#tripCard{
+  background-color: lightgreen;
+  border-radius: 20px;
+  box-shadow: black 5px 5px 20px 5px;
+  color: #000;
+  display: inline-block;
+  margin: 25px;
+  padding: 15px;
+  width: 250px;
+  transition: 500ms ease-in-out all;
+}
+
+#tripCard:hover{
+  transform: scale(1.2);
+}
