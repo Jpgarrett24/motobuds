@@ -447,6 +447,9 @@ footer img{
   transition: 200ms ease-in-out all;
   width: 200px;
 }
+#tripDetails #leaveRide{
+  background-color: #ff0000;
+}
 #tripDetails button:hover{
   transform: scale(1.2);
 }
@@ -455,7 +458,7 @@ footer img{
   margin-top: 8px;
   vertical-align: top;
 }
-#joinLogo{
+.joinLeave{
   font-size: 25pt;
   margin: 0 10px 0 0;
 }
