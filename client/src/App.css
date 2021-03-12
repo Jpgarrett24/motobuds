@@ -367,7 +367,7 @@ footer img{
   text-align: center;
 }
 
-#homeNav a{
+#homeNav a, #homeNav div{
   color: #000;
   display: inline-block;
   vertical-align: top;
@@ -375,7 +375,7 @@ footer img{
   transition: all 200ms ease-in-out;
 }
 
-#homeNav a:hover{
+#homeNav a:hover, #homeNav div:hover{
   transform: scale(1.25);
   cursor: pointer;
 }
@@ -384,7 +384,7 @@ footer img{
   margin-top: 0px;
 }
 
-#homeNav a span{
+#homeNav a span, #homeNav div span{
   display: inline-block;
   font-size: 15pt;
   vertical-align: top;
@@ -405,10 +405,10 @@ footer img{
 #homeNav a:nth-of-type(2) .homeNavIcons{
   color: #aa00ff;
 }
-#homeNav a:nth-of-type(4) .homeNavIcons{
+#homeNav div .homeNavIcons{
   color: #26a300;
 }
-#homeNav a:nth-of-type(5) .homeNavIcons{
+#homeNav a:nth-of-type(4) .homeNavIcons{
   color: #ff6f00;
 }
 
@@ -472,4 +472,34 @@ footer img{
 }
 #tripDetails li{
   margin: 5px 0 0 0;
+}
+
+#addTripForm {
+  background-color: #0099ff;
+  display: inline-block;
+  position: absolute;
+  top: 75px;
+  left: 5%;
+  text-align: center;
+  width: 90%;
+  z-index: 1;
+}
+
+#addTripForm h4{
+  display: inline-block;
+  font-size: 20pt;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#closeForm{
+  font-size: 25pt;
+  left: 38%;
+  position: relative;
+  top: 7.5px;
+  transition: 200ms all ease-in-out;
+}
+
+#closeForm:hover{
+  transform: scale(1.5);
 }

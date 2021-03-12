@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { FaUserPlus, FaUserMinus } from 'react-icons/fa';
 
 import Footer from '../components/Footer';
+import GoogleMap from '../components/GoogleMap';
 import { formatDate } from '../helper/formatDate';
 import Navbar from '../components/Navbar';
 import tripsApi from '../api/trips';
@@ -56,6 +57,7 @@ const TripDetails = ({ match }) => {
                         <ul>
                             {trip.riders.map((rider) => <li key={rider._id}>{rider.firstName} {rider.lastName}</li>)}
                         </ul>
+                        <GoogleMap />
                     </>
                 }
             </main>
