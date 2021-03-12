@@ -24,21 +24,12 @@ const TripDetails = ({ match }) => {
     }, [auth.user._id]);
 
     const joinRide = async () => {
-        const updatedRiders = {
-            "riders": []
-        }
-        trip.riders.forEach((rider) => updatedRiders.riders.push(rider._id));
-        updatedRiders.riders.push(auth.user._id);
-        tripsApi.joinRide(trip._id, updatedRiders);
+        tripsApi.joinRide(trip._id, trip.riders, auth.user._id);
         setLoading(true);
     };
 
     const leaveRide = async () => {
-        let updatedRiders = {
-            "riders": trip.riders.filter((rider) => rider._id !== auth.user._id)
-        };
-        updatedRiders.riders = updatedRiders.riders.map((rider) => rider._id);
-        tripsApi.joinRide(trip._id, updatedRiders);
+        tripsApi.leaveRide(trip._id, trip.riders, auth.user._id);
         setLoading(true);
         setJoined(false);
     };
