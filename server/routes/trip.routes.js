@@ -6,5 +6,5 @@ module.exports = (app) => {
     app.get('/api/trips', tripController.getAll);
     app.get('/api/trips/:_id', tripController.getOne);
     app.put('/api/trips/:_id', tripController.update);
-    app.delete('/api/trips/:_id', auth, tripController.delete);
+    app.delete('/api/trips/:_id', tripController.delete);
 }

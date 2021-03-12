@@ -10,7 +10,7 @@ const TripCard = ({ trip }) => {
     return (
         <Link to={`/rides/${trip._id}`}>
             <div id="tripCard">
-                <h3>{trip.name}</h3>
+                <h3>{trip.from.city} to {trip.to.city}</h3>
                 <p>{date.date}</p>
                 <p>{date.time}</p>
                 <span><FaUserFriends /> {trip.riders.length}</span>

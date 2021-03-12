@@ -429,9 +429,33 @@ footer img{
   margin: 25px;
   padding: 15px;
   width: 250px;
-  transition: 500ms ease-in-out all;
+  transition: 200ms ease-in-out all;
 }
 
 #tripCard:hover{
   transform: scale(1.2);
+}
+
+#tripDetails button{
+  background-color: #00db25;
+  border: none;
+  border-radius: 20px;
+  font-size: 18pt;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  transition: 200ms ease-in-out all;
+  width: 200px;
+}
+#tripDetails button:hover{
+  transform: scale(1.2);
+}
+#tripDetails button span{
+  display: inline-block;
+  margin-top: 8px;
+  vertical-align: top;
+}
+#joinLogo{
+  font-size: 25pt;
+  margin: 0 10px 0 0;
 }

@@ -2,18 +2,15 @@ const mongoose = require('mongoose');
 
 const TripSchema = new mongoose.Schema(
     {
-        name: {
-            type: String,
-            required: [true, '{PATH} is required.']
-        },
         startDate: {
             type: Date,
             default: Date.now,
             required: [true, 'A start date and time is required']
         },
         from: {
-            address: {
+            city: {
                 type: String,
+                required: [true, 'City is required']
             },
             location: {
                 type: { type: String, enum: ['Point'], required: [true, 'Starting location is required'] },
@@ -24,8 +21,9 @@ const TripSchema = new mongoose.Schema(
             }
         },
         to: {
-            address: {
+            city: {
                 type: String,
+                required: [true, 'City is required']
             },
             location: {
                 type: { type: String, enum: ['Point'], required: [true, 'End location is required'] },

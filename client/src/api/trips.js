@@ -17,6 +17,14 @@ const tripsApi = {
                 .catch((err) => err.response)
         );
     },
+
+    joinRide: function (trip_id, users) {
+        return (
+            axios.put(`${settings.dev.apiUrl}/trips/${trip_id}`, users)
+                .then((res) => res)
+                .catch((err) => err.response)
+        );
+    },
 };
 
 export default tripsApi;
