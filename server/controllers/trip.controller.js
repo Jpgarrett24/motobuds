@@ -22,7 +22,7 @@ module.exports = {
     },
 
     getOne(req, res) {
-        Trip.findById(req.params._id)
+        Trip.findById(req.params._id).populate('riders', ['-password', '-trips', '-__v'])
             .then((trip) => {
                 res.json(trip);
             })

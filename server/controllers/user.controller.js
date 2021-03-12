@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 module.exports = {
     async create(req, res) {
@@ -42,16 +43,6 @@ module.exports = {
         User.findById(req.params._id)
             .then((user) => {
                 res.json(user);
-            })
-            .catch((err) => {
-                res.json(err);
-            });
-    },
-
-    getGroup(req, res) {
-        User.find().where(req.params._id).in(trips)
-            .then((users) => {
-                res.json(users);
             })
             .catch((err) => {
                 res.json(err);
