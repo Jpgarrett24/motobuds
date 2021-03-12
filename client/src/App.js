@@ -6,6 +6,7 @@ import AuthContext from './auth/AuthContext';
 import auth from './api/auth';
 import LoginAndReg from './views/LoginAndReg';
 import Homescreen from './views/Homescreen';
+import TripDetails from './views/TripDetails';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -18,7 +19,9 @@ function App() {
     return setUser(result.data);
   };
 
-  const getLocation = () => {
+  const getLocation = async () => {
+    let allow = await navigator.permissions.query({ name: "geolocation" });
+    if (allow.state === 'denied') return setLocation('not granted');
     navigator.geolocation.getCurrentPosition((position) => {
       setLocation({
         latitude: position.coords.latitude,
@@ -32,7 +35,7 @@ function App() {
     getLocation();
   }, []);
 
-  console.log(location);
+  // console.log(location);
 
   return (
     <Router>
@@ -43,6 +46,9 @@ function App() {
               {user && <Redirect to="/home" />}
             </Route>
             <Route path="/home" component={Homescreen}>
+              {!user && <Redirect to="/" />}
+            </Route>
+            <Route path="/rides/:_id" component={TripDetails}>
               {!user && <Redirect to="/" />}
             </Route>
           </Switch>

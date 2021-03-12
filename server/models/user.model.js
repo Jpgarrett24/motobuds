@@ -29,6 +29,11 @@ const UserSchema = new mongoose.Schema(
             required: true,
             minlength: [8, '{PATH} must be {MINLENGTH} characters long.'],
         },
+        trips: [{
+            type: mongoose.Schema.ObjectId,
+            ref: 'Trip',
+            required: false,
+        }]
     }
 );
 

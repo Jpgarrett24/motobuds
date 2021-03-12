@@ -23,9 +23,7 @@ const Homescreen = () => {
     }, []);
 
     useEffect(() => {
-        if (auth.location) {
-            if (trips) return setLoading(false);
-        }
+        if (auth.location && trips) return setLoading(false);
     }, [auth.location, trips])
 
     return (

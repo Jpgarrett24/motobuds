@@ -48,6 +48,16 @@ module.exports = {
             });
     },
 
+    getGroup(req, res) {
+        User.find().where(req.params._id).in(trips)
+            .then((users) => {
+                res.json(users);
+            })
+            .catch((err) => {
+                res.json(err);
+            });
+    },
+
     update(req, res) {
         User.findByIdAndUpdate(req.params._id, req.body, {
             runValidators: true,
