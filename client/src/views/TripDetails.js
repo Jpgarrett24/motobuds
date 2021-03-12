@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FaUserPlus, FaUserMinus } from 'react-icons/fa';
 
 import Footer from '../components/Footer';
@@ -14,14 +14,14 @@ const TripDetails = ({ match }) => {
     const [joined, setJoined] = useState(false);
     const auth = useAuth();
 
-    const getTrip = async (_id) => {
+    const getTrip = useCallback(async (_id) => {
         let result = await tripsApi.getOne(_id);
         setTrip(result.data);
         setDate(formatDate(result.data.startDate));
         result.data.riders.forEach((rider) => {
             if (rider._id === auth.user._id) return setJoined(true);
         });
-    };
+    }, [auth.user._id]);
 
     const joinRide = async () => {
         const updatedRiders = {
@@ -45,7 +45,7 @@ const TripDetails = ({ match }) => {
 
     useEffect(() => {
         getTrip(match.params._id);
-    }, [match.params._id, loading]);
+    }, [match.params._id, loading, getTrip]);
 
     useEffect(() => {
         if (auth.location && trip) return setLoading(false);
