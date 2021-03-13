@@ -57,7 +57,7 @@ const TripDetails = ({ match }) => {
                         <ul>
                             {trip.riders.map((rider) => <li key={rider._id}>{rider.firstName} {rider.lastName}</li>)}
                         </ul>
-                        <GoogleMap />
+                        <GoogleMap trip={trip} />
                     </>
                 }
             </main>

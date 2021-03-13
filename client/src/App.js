@@ -20,13 +20,13 @@ function App() {
   };
 
   const getLocation = async () => {
-    return setLocation({ latitude: 47.6301955, longitude: -122.50948009999999 })
+    return setLocation({ lat: 47.6301955, lng: -122.50948009999999 })
     let allow = await navigator.permissions.query({ name: "geolocation" });
     if (allow.state === 'denied') return setLocation('not granted');
     navigator.geolocation.getCurrentPosition((position) => {
       setLocation({
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
       });
     });
   };
