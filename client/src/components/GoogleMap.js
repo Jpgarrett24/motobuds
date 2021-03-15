@@ -43,7 +43,7 @@ export const MapContainer = (props) => {
         let lngDiff = difference(props.trip.from.location.coordinates[0], props.trip.to.location.coordinates[0])
         let zoomRef = hypotenuse(latDiff, lngDiff);
         let m = -2.74539734;
-        let b = 14;
+        let b = 13.9;
         let y = m * zoomRef + b;
         setZoom(Math.round(y * 10) / 10);
 

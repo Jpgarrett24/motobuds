@@ -50,7 +50,7 @@ const TripDetails = ({ match }) => {
                 <div id="backgroundLogo" />
                 {loading ? <></> :
                     <>
-                        {joined ? <button onClick={leaveRide} id="leaveRide"><FaUserMinus className="joinLeave" /><span>Leave ride</span></button> : <button onClick={joinRide}><FaUserPlus className="joinLeave" /><span>Join ride</span></button>}
+                        {joined ? <button onClick={leaveRide} id="leaveRide" className="joinLeaveButton"><FaUserMinus className="joinLeave" /><span>Leave ride</span></button> : <button onClick={joinRide} className="joinLeaveButton"><FaUserPlus className="joinLeave" /><span>Join ride</span></button>}
                         <h1>{trip.from.city} to {trip.to.city}</h1>
                         <h2>{date.date} {date.time}</h2>
                         <p>Riders:</p>

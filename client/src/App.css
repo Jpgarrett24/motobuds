@@ -10,7 +10,7 @@ body{
 
 main{
   margin-top: 75px;
-  min-height: 1000px;
+  min-height: 100vh;
   text-align: center;
 }
 
@@ -437,7 +437,7 @@ footer img{
   transform: scale(1.2);
 }
 
-#tripDetails button{
+#tripDetails .joinLeaveButton{
   background-color: #00db25;
   border: none;
   border-radius: 20px;
@@ -472,7 +472,7 @@ footer img{
   margin: 0 0 15px 0;
 }
 #tripDetails li{
-  margin: 5px 0 0 0;
+  margin: 10px 0;
 }
 
 #addTripForm {
@@ -503,8 +503,4 @@ footer img{
 
 #closeForm:hover{
   transform: scale(1.5);
-}
-
-#startMarker{
-  color: #00db25;
 }
