@@ -21,7 +21,7 @@ function App() {
   };
 
   const getLocation = async () => {
-    return setLocation({ lat: 47.6301955, lng: -122.50948009999999 })
+    return setLocation({ lat: 47.6205063, lng: -122.3514661 })
     // let allow = await navigator.permissions.query({ name: "geolocation" });
     // if (allow.state === 'denied') return setLocation('not granted');
     // navigator.geolocation.getCurrentPosition((position) => {
