@@ -20,6 +20,7 @@ header{
   top: 0;
   width: 100%;
   text-align: center;
+  z-index: 1;
 }
 
 #loginNav{
@@ -493,6 +494,7 @@ footer img{
 
 #addTripForm {
   background-color: #0099ff;
+  border-radius: 50px;
   display: inline-block;
   position: absolute;
   top: 75px;
@@ -504,14 +506,15 @@ footer img{
 
 #addTripForm h4{
   display: inline-block;
+  margin-top: 50px;
   font-size: 20pt;
 }
 
 #closeForm{
   font-size: 25pt;
-  left: 38%;
-  position: relative;
-  top: 7.5px;
+  right: 3%;
+  position: absolute;
+  top: 15%;
   transition: 200ms all ease-in-out;
 }
 
@@ -520,12 +523,43 @@ footer img{
 }
 
 #formBack{
-  bottom: 4.25vh;
   font-size: 25pt;
-  right: 44%;
-  position: relative;
+  left: 3%;
+  position: absolute;
+  top: 15%;
   transition: 200ms all ease-in-out
 }
 #formBack:hover{
   transform: scale(1.5);
+}
+
+#addTripForm h5{
+  margin: 3% 0;
+  font-size: 15pt;
+}
+
+#addTripForm .flatpickr-input{
+  background-color: #fffff0;
+  border-radius: 30px;
+  display: inline-block;
+  font-size: 20pt;
+  height: 100px;
+  margin: 0px 30%;
+  width: 300px;
+  text-align: center;
+}
+
+#addTripForm button{
+  background-color: #fffff0;
+  border: none;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 15pt;
+  margin: 15px 20%;
+  padding: 10px;
+  width: 100px;
+  transition: all ease-in-out 200ms;
+}
+#addTripForm button:hover{
+  transform: scale(1.2);
 }

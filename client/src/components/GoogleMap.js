@@ -19,6 +19,7 @@ export const MapContainer = (props) => {
         position: 'relative',
         margin: '0 0 50px 0',
         width: '80%',
+        zIndex: 0,
     }
 
     // console.log({
@@ -104,7 +105,7 @@ export const MapContainer = (props) => {
                         }}
                         icon={{
                             url: redMarker, // url
-                            scaledSize: new props.google.maps.Size(30, 42), // scaled size
+                            scaledSize: new props.google.maps.Size(30, 43), // scaled size
                         }}
                     />
                     <InfoWindow
