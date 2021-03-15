@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
+
+import greenMarker from '../assets/greenMarker.png';
+import redMarker from '../assets/redMarker.png';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
@@ -28,7 +31,7 @@ export const MapContainer = (props) => {
     //     }
     // });
 
-    const calculateCenter = () => {
+    const calculateCenter = useCallback(() => {
         function difference(from, to) {
             return Math.abs(from - to);
         };
@@ -50,11 +53,11 @@ export const MapContainer = (props) => {
             lat,
             lng,
         });
-    };
+    }, [props.trip.from.location.coordinates, props.trip.to.location.coordinates]);
 
     useEffect(() => {
         calculateCenter();
-    }, []);
+    }, [calculateCenter]);
 
     const onMarkerClick = (props, marker, e) => {
         setSelectedPlace(props);
@@ -86,6 +89,10 @@ export const MapContainer = (props) => {
                             lat: props.trip.from.location.coordinates[1],
                             lng: props.trip.from.location.coordinates[0]
                         }}
+                        icon={{
+                            url: greenMarker, // url
+                            scaledSize: new props.google.maps.Size(30, 45), // scaled size
+                        }}
                     />
                     <Marker
                         name={'End destination'}
@@ -93,6 +100,10 @@ export const MapContainer = (props) => {
                         position={{
                             lat: props.trip.to.location.coordinates[1],
                             lng: props.trip.to.location.coordinates[0]
+                        }}
+                        icon={{
+                            url: redMarker, // url
+                            scaledSize: new props.google.maps.Size(30, 42), // scaled size
                         }}
                     />
                     <InfoWindow
@@ -105,7 +116,7 @@ export const MapContainer = (props) => {
                 </Map>
             }
         </>
-    )
+    );
 };
 
 export default GoogleApiWrapper({

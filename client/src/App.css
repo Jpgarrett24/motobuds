@@ -365,6 +365,7 @@ footer img{
 #homeNav{
   height: 75px;
   text-align: center;
+  z-index: 1;
 }
 
 #homeNav a, #homeNav div{
@@ -502,4 +503,8 @@ footer img{
 
 #closeForm:hover{
   transform: scale(1.5);
+}
+
+#startMarker{
+  color: #00db25;
 }
