@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 
 import AuthContext from './auth/AuthContext';
 import auth from './api/auth';
-import LoginAndReg from './views/LoginAndReg';
 import Homescreen from './views/Homescreen';
+import LoginAndReg from './views/LoginAndReg';
+import MyRides from './views/MyRides';
 import TripDetails from './views/TripDetails';
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
               {user && <Redirect to="/home" />}
             </Route>
             <Route path="/home" component={Homescreen}>
+              {!user && <Redirect to="/" />}
+            </Route>
+            <Route path="/myRides" component={MyRides}>
               {!user && <Redirect to="/" />}
             </Route>
             <Route path="/rides/:_id" component={TripDetails}>

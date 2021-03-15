@@ -21,7 +21,7 @@ const Navbar = () => {
                         <AiFillDashboard className="homeNavIcons" />
                         <span>Dashboard</span>
                     </Link>
-                    <Link to="/home">
+                    <Link to="/myRides">
                         <GiFullMotorcycleHelmet className="homeNavIcons" />
                         <span>My Rides</span>
                     </Link>

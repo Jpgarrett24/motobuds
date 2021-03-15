@@ -39,6 +39,16 @@ module.exports = {
             });
     },
 
+    getMyRides(req, res) {
+        User.findById(req.params._id).select(['-password', '-__v']).populate('trips')
+            .then((user) => {
+                res.json(user);
+            })
+            .catch((err) => {
+                res.json(err)
+            });
+    },
+
     getOne(req, res) {
         User.findById(req.params._id).select(['-password', '-__v'])
             .then((user) => {
