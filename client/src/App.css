@@ -10,7 +10,7 @@ body{
 
 main{
   margin-top: 75px;
-  min-height: 100vh;
+  min-height: 125vh;
   text-align: center;
 }
 
@@ -514,7 +514,7 @@ footer img{
   font-size: 25pt;
   right: 3%;
   position: absolute;
-  top: 15%;
+  top: 30px;
   transition: 200ms all ease-in-out;
 }
 
@@ -526,7 +526,7 @@ footer img{
   font-size: 25pt;
   left: 3%;
   position: absolute;
-  top: 15%;
+  top: 30px;
   transition: 200ms all ease-in-out
 }
 #formBack:hover{
@@ -534,7 +534,7 @@ footer img{
 }
 
 #addTripForm h5{
-  margin: 3% 0;
+  margin: 20px 0;
   font-size: 15pt;
 }
 
@@ -549,7 +549,7 @@ footer img{
   text-align: center;
 }
 
-#addTripForm button{
+#addTripForm .addFormButton{
   background-color: #fffff0;
   border: none;
   border-radius: 20px;
@@ -560,6 +560,13 @@ footer img{
   width: 100px;
   transition: all ease-in-out 200ms;
 }
-#addTripForm button:hover{
+#addTripForm .addFormButton:hover{
   transform: scale(1.2);
+}
+
+.location-search-input{
+  display: inline-block;
+  font-size: 15pt;
+  height: 40px;
+  width: 200px;
 }

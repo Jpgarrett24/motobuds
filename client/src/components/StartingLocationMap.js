@@ -1,0 +1,108 @@
+import React, { useState } from 'react';
+import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+
+const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+
+export const MapContainer = (props) => {
+    const [address, setAddress] = useState("");
+    const [showingInfoWindow, setShowingInfoWindow] = useState(false);
+    const [activeMarker, setActiveMarker] = useState({});
+    const [selectedPlace, setSelectedPlace] = useState({});
+
+    const containerStyle = {
+        display: 'inline-block',
+        height: '65vh',
+        position: 'relative',
+        margin: '15px 0 50px 0',
+        width: '80%',
+        zIndex: 0,
+    }
+
+    const handleChange = (address) => {
+        setAddress(address);
+    }
+
+    const handleSelect = (address) => {
+        geocodeByAddress(address)
+            .then((res) => getLatLng(res[0]))
+            .then((latlng) => {
+                console.log('success', latlng);
+                setAddress(address);
+            })
+            .catch((err) => console.error('Error', err));
+    }
+
+    const onMarkerClick = (props, marker, e) => {
+        setSelectedPlace(props);
+        setActiveMarker(marker);
+        setShowingInfoWindow(true);
+    }
+
+    const onMapClicked = (props) => {
+        if (showingInfoWindow) {
+            setShowingInfoWindow(false);
+            setActiveMarker(null);
+        }
+    };
+
+    return (
+        <>
+            <PlacesAutocomplete
+                value={address}
+                onChange={(address) => handleChange(address)}
+                onSelect={handleSelect}
+            >
+                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                    <div>
+                        <input
+                            {...getInputProps({
+                                placeholder: 'Search Places ...',
+                                className: 'location-search-input',
+                            })}
+                        />
+                        <div className="autocomplete-dropdown-container">
+                            {loading && <div>Loading...</div>}
+                            {suggestions.map(suggestion => {
+                                const className = suggestion.active
+                                    ? 'suggestion-item--active'
+                                    : 'suggestion-item';
+                                // inline style for demonstration purpose
+                                const style = suggestion.active
+                                    ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                                    : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                                return (
+                                    <div
+                                        {...getSuggestionItemProps(suggestion, {
+                                            className,
+                                            style,
+                                        })}
+                                    >
+                                        <span>{suggestion.description}</span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
+            </PlacesAutocomplete>
+            <Map
+                containerStyle={containerStyle}
+                google={props.google}
+                onClick={onMapClicked}
+            >
+                <InfoWindow
+                    marker={activeMarker}
+                    visible={showingInfoWindow}>
+                    <div>
+                        <h1>{selectedPlace.name}</h1>
+                    </div>
+                </InfoWindow>
+            </Map>
+        </>
+    );
+};
+
+export default GoogleApiWrapper({
+    apiKey: API_KEY
+})(MapContainer)
