@@ -25,12 +25,12 @@ const TripDetails = ({ match }) => {
     }, [auth.user._id]);
 
     const joinRide = async () => {
-        tripsApi.joinRide(trip._id, trip.riders, auth.user._id);
+        tripsApi.joinRide(trip._id, trip.riders, auth.user);
         setLoading(true);
     };
 
     const leaveRide = async () => {
-        tripsApi.leaveRide(trip._id, trip.riders, auth.user._id);
+        tripsApi.leaveRide(trip._id, trip.riders, auth.user);
         setLoading(true);
         setJoined(false);
     };

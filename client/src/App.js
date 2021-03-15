@@ -36,8 +36,6 @@ function App() {
     getLocation();
   }, []);
 
-  // console.log(location);
-
   return (
     <Router>
       <AuthContext.Provider value={value}>

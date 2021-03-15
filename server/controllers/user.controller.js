@@ -40,7 +40,7 @@ module.exports = {
     },
 
     getOne(req, res) {
-        User.findById(req.params._id)
+        User.findById(req.params._id).select(['-password', '-__v'])
             .then((user) => {
                 res.json(user);
             })
