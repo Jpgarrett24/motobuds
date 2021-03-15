@@ -14,7 +14,6 @@ const MyRides = () => {
 
     const getMyRides = useCallback(async () => {
         let result = await usersApi.getMyRides(auth.user._id);
-        console.log(result);
         setTrips(result.data.trips);
     }, [auth.user._id]);
 

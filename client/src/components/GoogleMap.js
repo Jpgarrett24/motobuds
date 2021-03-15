@@ -14,9 +14,10 @@ export const MapContainer = (props) => {
     const [selectedPlace, setSelectedPlace] = useState({});
 
     const containerStyle = {
-        height: '60%',
-        left: '10%',
-        position: 'absolute',
+        display: 'inline-block',
+        height: '65vh',
+        position: 'relative',
+        margin: '0 0 50px 0',
         width: '80%',
     }
 

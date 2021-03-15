@@ -43,6 +43,10 @@ const TripSchema = new mongoose.Schema(
             ref: 'User',
             required: false,
         }],
+        routeUrl: {
+            type: String,
+            required: false,
+        }
     },
     { timestamps: true }
 );

@@ -19,9 +19,11 @@ header{
   position: fixed;
   top: 0;
   width: 100%;
+  text-align: center;
 }
 
 #loginNav{
+  display: inline-block;
   height: 75px;
   text-align: center;
 }
@@ -31,6 +33,7 @@ header{
   vertical-align: top;
   margin: 15px 35px 0 35px;
   transition: all 200ms ease-in-out;
+  width: 200px;
 }
 
 #loginNav a:hover{
@@ -363,8 +366,8 @@ footer img{
 
 
 #homeNav{
+  display: inline-block;
   height: 75px;
-  text-align: center;
   z-index: 1;
 }
 
@@ -374,6 +377,7 @@ footer img{
   vertical-align: top;
   margin: 15px 35px 0 35px;
   transition: all 200ms ease-in-out;
+  width: 200px;
 }
 
 #homeNav a:hover, #homeNav div:hover{
@@ -475,6 +479,18 @@ footer img{
   margin: 10px 0;
 }
 
+#tripDetails #specific{
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 18pt;
+  padding: 15px;
+  margin: 25px 0 35px 0;
+  transition: all ease-in-out 200ms;
+}
+#tripDetails #specific:hover{
+  transform: scale(1.2);
+}
+
 #addTripForm {
   background-color: #0099ff;
   display: inline-block;
@@ -489,8 +505,6 @@ footer img{
 #addTripForm h4{
   display: inline-block;
   font-size: 20pt;
-  min-height: 100vh;
-  padding: 20px;
 }
 
 #closeForm{
@@ -502,5 +516,16 @@ footer img{
 }
 
 #closeForm:hover{
+  transform: scale(1.5);
+}
+
+#formBack{
+  bottom: 4.25vh;
+  font-size: 25pt;
+  right: 44%;
+  position: relative;
+  transition: 200ms all ease-in-out
+}
+#formBack:hover{
   transform: scale(1.5);
 }

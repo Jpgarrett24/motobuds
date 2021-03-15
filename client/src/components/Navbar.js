@@ -15,8 +15,8 @@ const Navbar = () => {
 
     return (
         <>
-            <header id="homeNav">
-                <nav>
+            <header>
+                <nav id="homeNav">
                     <Link to="/home">
                         <AiFillDashboard className="homeNavIcons" />
                         <span>Dashboard</span>

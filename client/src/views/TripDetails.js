@@ -57,6 +57,7 @@ const TripDetails = ({ match }) => {
                         <ul>
                             {trip.riders.map((rider) => <li key={rider._id}>{rider.firstName} {rider.lastName}</li>)}
                         </ul>
+                        {trip.routeUrl && <a href={`${trip.routeUrl}`} target="_blank" rel="noreferrer" id="specific">Specific Route</a>}
                         <GoogleMap trip={trip} />
                     </>
                 }
