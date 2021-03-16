@@ -58,6 +58,14 @@ const tripsApi = {
                 .catch((err) => err.response)
         );
     },
+
+    create: function (formData) {
+        return (
+            axios.post(`${settings.dev.apiUrl}/trips`, formData)
+                .then((res) => res)
+                .catch((err) => err.response)
+        );
+    },
 };
 
 export default tripsApi;

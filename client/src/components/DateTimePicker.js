@@ -2,15 +2,15 @@ import React from 'react';
 import "flatpickr/dist/themes/material_green.css";
 import Flatpickr from 'react-flatpickr';
 
-const DateTimePicker = ({ date, setDate }) => {
+const DateTimePicker = ({ formData, setFormData }) => {
     return (
         <Flatpickr
             data-enable-time
-            onChange={(date) => setDate(date)}
+            onChange={(startDate) => setFormData({ ...formData, startDate })}
             options={{
                 minDate: 'today'
             }}
-            value={date}
+            value={formData.startDate}
         />
     );
 };

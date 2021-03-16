@@ -22,17 +22,6 @@ export const MapContainer = (props) => {
         zIndex: 0,
     }
 
-    // console.log({
-    //     lat: {
-    //         from: props.trip.from.location.coordinates[1],
-    //         to: props.trip.to.location.coordinates[1]
-    //     },
-    //     lng: {
-    //         from: props.trip.from.location.coordinates[0],
-    //         to: props.trip.to.location.coordinates[0]
-    //     }
-    // });
-
     const calculateCenter = useCallback(() => {
         function difference(from, to) {
             return Math.abs(from - to);
@@ -73,6 +62,8 @@ export const MapContainer = (props) => {
             setActiveMarker(null);
         }
     };
+
+    console.log(props.trip);
 
     return (
         <>

@@ -5,15 +5,15 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 export const MapContainer = (props) => {
-    const { setFrom } = props;
-    const [address, setAddress] = useState("Circuit of the Americas, Austin, TX");
+    const { setTo } = props;
+    const [address, setAddress] = useState("WeatherTech Raceway Laguna Seca, Salinas, CA");
     const [showingInfoWindow, setShowingInfoWindow] = useState(false);
     const [activeMarker, setActiveMarker] = useState({});
     const [selectedPlace, setSelectedPlace] = useState({});
     const [mapCenter, setMapCenter] = useState({
-        lat: 30.1346,
-        lng: -97.6359
-    });
+        lat: 36.5843,
+        lng: -121.7535
+    })
 
     const containerStyle = {
         display: 'inline-block',
@@ -22,11 +22,11 @@ export const MapContainer = (props) => {
         margin: '15px 0 50px 0',
         width: '80%',
         zIndex: 0,
-    };
+    }
 
     useEffect(() => {
-        setFrom({ location: { coordinates: [30.1346, -97.6359] }, city: "Circuit of the Americas, Austin, TX" })
-    }, [setFrom])
+        setTo({ location: { coordinates: [36.5843, -121.7535] }, city: "WeatherTech Raceway Laguna Seca, Salinas, CA" })
+    }, [setTo])
 
     const handleChange = (address) => {
         setAddress(address);
@@ -38,7 +38,7 @@ export const MapContainer = (props) => {
             .then((latlng) => {
                 setAddress(selected);
                 setMapCenter(latlng);
-                setFrom({
+                setTo({
                     location: {
                         coordinates: [latlng.lat, latlng.lng]
                     },
@@ -82,7 +82,6 @@ export const MapContainer = (props) => {
                                 const className = suggestion.active
                                     ? 'suggestion-item--active'
                                     : 'suggestion-item';
-                                // inline style for demonstration purpose
                                 const style = suggestion.active
                                     ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                                     : { backgroundColor: '#ffffff', cursor: 'pointer' };
