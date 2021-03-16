@@ -352,6 +352,7 @@ header{
 
 footer{
   background-color: rgba(0, 0, 0, 0.25);
+  margin-top: 50px;
   padding: 25px 0;
   text-align: center;
 }
@@ -442,13 +443,15 @@ footer img{
   transform: scale(1.2);
 }
 
+#tripDetails #buttonDiv{
+  text-align: right;
+}
 #tripDetails .joinLeaveButton{
   background-color: #00db25;
   border: none;
   border-radius: 20px;
   font-size: 18pt;
   height: 50px;
-  position: absolute;
   right: 20px;
   transition: 200ms ease-in-out all;
   width: 200px;
@@ -470,8 +473,7 @@ footer img{
 }
 
 #tripDetails h1{
-  margin: 15px 0;
-  padding: 15px 0 0 0;
+  margin: 20px 0;
 }
 #tripDetails h2{
   margin: 0 0 15px 0;

@@ -15,9 +15,8 @@ export const MapContainer = (props) => {
 
     const containerStyle = {
         display: 'inline-block',
-        height: '65vh',
+        height: '70vh',
         position: 'relative',
-        margin: '0 0 50px 0',
         width: '80%',
         zIndex: 0,
     }
@@ -33,10 +32,12 @@ export const MapContainer = (props) => {
         let latDiff = difference(props.trip.from.location.coordinates[1], props.trip.to.location.coordinates[1])
         let lngDiff = difference(props.trip.from.location.coordinates[0], props.trip.to.location.coordinates[0])
         let zoomRef = hypotenuse(latDiff, lngDiff);
-        let m = -2.74539734;
-        let b = 13.9;
-        let y = m * zoomRef + b;
+        let a = 8.801757344;
+        let b = -1.245242148;
+        let y = a + b * Math.log(zoomRef);
         setZoom(Math.round(y * 10) / 10);
+
+        console.log(`hypotenuse: ${zoomRef}`);
 
         const lat = (props.trip.from.location.coordinates[1] + props.trip.to.location.coordinates[1]) / 2;
         const lng = (props.trip.from.location.coordinates[0] + props.trip.to.location.coordinates[0]) / 2;
@@ -62,6 +63,8 @@ export const MapContainer = (props) => {
             setActiveMarker(null);
         }
     };
+
+    console.log(zoom);
 
     return (
         <>

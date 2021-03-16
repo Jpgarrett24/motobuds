@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FaUserPlus, FaUserMinus } from 'react-icons/fa';
+import { FaUserPlus, FaUserMinus, FaLongArrowAltDown } from 'react-icons/fa';
 
 import Footer from '../components/Footer';
 import GoogleMap from '../components/GoogleMap';
@@ -50,8 +50,29 @@ const TripDetails = ({ match }) => {
                 <div id="backgroundLogo" />
                 {loading ? <></> :
                     <>
-                        {joined ? <button onClick={leaveRide} id="leaveRide" className="joinLeaveButton"><FaUserMinus className="joinLeave" /><span>Leave ride</span></button> : <button onClick={joinRide} className="joinLeaveButton"><FaUserPlus className="joinLeave" /><span>Join ride</span></button>}
-                        <h1>{trip.from.city} to {trip.to.city}</h1>
+                        {joined ?
+                            <div id="buttonDiv">
+                                <button
+                                    onClick={leaveRide}
+                                    id="leaveRide"
+                                    className="joinLeaveButton"
+                                >
+                                    <FaUserMinus className="joinLeave" />
+                                    <span>Leave ride</span>
+                                </button>
+                            </div> :
+                            <div id="buttonDiv">
+                                <button
+                                    onClick={joinRide}
+                                    className="joinLeaveButton"
+                                >
+                                    <FaUserPlus className="joinLeave" />
+                                    <span>Join ride</span>
+                                </button>
+                            </div>}
+                        <h1>{trip.from.city}</h1>
+                        <FaLongArrowAltDown size={50} />
+                        <h1>{trip.to.city}</h1>
                         <h2>{date.date} {date.time}</h2>
                         <p>Riders:</p>
                         <ul>
