@@ -60,6 +60,7 @@ const tripsApi = {
     },
 
     create: function (formData) {
+        console.log(formData);
         return (
             axios.post(`${settings.dev.apiUrl}/trips`, formData)
                 .then((res) => res)

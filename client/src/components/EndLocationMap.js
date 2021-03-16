@@ -25,7 +25,7 @@ export const MapContainer = (props) => {
     }
 
     useEffect(() => {
-        setTo({ location: { coordinates: [36.5843, -121.7535] }, city: "WeatherTech Raceway Laguna Seca, Salinas, CA" })
+        setTo({ location: { coordinates: [36.5843, -121.7535], type: "Point" }, city: "WeatherTech Raceway Laguna Seca, Salinas, CA" })
     }, [setTo])
 
     const handleChange = (address) => {
@@ -40,7 +40,8 @@ export const MapContainer = (props) => {
                 setMapCenter(latlng);
                 setTo({
                     location: {
-                        coordinates: [latlng.lat, latlng.lng]
+                        coordinates: [latlng.lng, latlng.lat],
+                        type: "Point"
                     },
                     city: selected
                 });
@@ -78,7 +79,7 @@ export const MapContainer = (props) => {
                         />
                         <div className="autocomplete-dropdown-container">
                             {loading && <div>Loading...</div>}
-                            {suggestions.map(suggestion => {
+                            {suggestions.map((suggestion, idx) => {
                                 const className = suggestion.active
                                     ? 'suggestion-item--active'
                                     : 'suggestion-item';
@@ -91,7 +92,7 @@ export const MapContainer = (props) => {
                                             className,
                                             style,
                                         })}
-                                        key={suggestion}
+                                        key={idx}
                                     >
                                         <span>{suggestion.description}</span>
                                     </div>

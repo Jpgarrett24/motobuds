@@ -25,7 +25,7 @@ export const MapContainer = (props) => {
     };
 
     useEffect(() => {
-        setFrom({ location: { coordinates: [30.1346, -97.6359] }, city: "Circuit of the Americas, Austin, TX" })
+        setFrom({ location: { coordinates: [30.1346, -97.6359], type: "Point" }, city: "Circuit of the Americas, Austin, TX" })
     }, [setFrom])
 
     const handleChange = (address) => {
@@ -40,7 +40,8 @@ export const MapContainer = (props) => {
                 setMapCenter(latlng);
                 setFrom({
                     location: {
-                        coordinates: [latlng.lat, latlng.lng]
+                        coordinates: [latlng.lng, latlng.lat],
+                        type: "Point"
                     },
                     city: selected
                 });
@@ -78,7 +79,7 @@ export const MapContainer = (props) => {
                         />
                         <div className="autocomplete-dropdown-container">
                             {loading && <div>Loading...</div>}
-                            {suggestions.map(suggestion => {
+                            {suggestions.map((suggestion, idx) => {
                                 const className = suggestion.active
                                     ? 'suggestion-item--active'
                                     : 'suggestion-item';
@@ -92,7 +93,7 @@ export const MapContainer = (props) => {
                                             className,
                                             style,
                                         })}
-                                        key={suggestion}
+                                        key={idx}
                                     >
                                         <span>{suggestion.description}</span>
                                     </div>

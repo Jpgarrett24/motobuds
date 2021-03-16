@@ -63,8 +63,6 @@ export const MapContainer = (props) => {
         }
     };
 
-    console.log(props.trip);
-
     return (
         <>
             {initialCenter &&

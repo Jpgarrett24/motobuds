@@ -7,6 +7,7 @@ import StartingMapPicker from './StartingLocationMap';
 import useAuth from '../auth/useAuth';
 import tripsApi from '../api/trips';
 import TripCard from './TripCard';
+import GoogleMap from './GoogleMap';
 
 
 const AddTripForm = ({ setShowForm }) => {
@@ -96,6 +97,7 @@ const AddTripForm = ({ setShowForm }) => {
                                     <>
                                         <h5>Does this look correct?</h5>
                                         <TripCard trip={formData} />
+                                        <GoogleMap trip={formData} />
                                         <button onClick={() => submitForm(formData)} className="addFormButton">Let's Ride!</button>
                                         {errors && errors.map((err, idx) => <p key={idx}>{err}</p>)}
                                     </> :
