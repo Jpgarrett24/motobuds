@@ -59,13 +59,21 @@ const tripsApi = {
         );
     },
 
-    create: function (formData) {
-        console.log(formData);
-        return (
-            axios.post(`${settings.dev.apiUrl}/trips`, formData)
-                .then((res) => res)
-                .catch((err) => err.response)
-        );
+    create: async function (formData, user) {
+        const result = await axios.post(`${settings.dev.apiUrl}/trips`, formData)
+            .then((res) => res)
+            .catch((err) => err.response);
+
+        let updateUser = await usersApi.getUser(user._id);
+        updateUser = updateUser.data;
+        const userTrips = updateUser.trips;
+        userTrips.push(result.data._id);
+        axios.put(`${settings.dev.apiUrl}/users/${user._id}`, { trips: userTrips })
+            .then((res) => res)
+            .catch((err) => err.response);
+
+
+        return result;
     },
 };
 

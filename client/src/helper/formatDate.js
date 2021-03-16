@@ -23,7 +23,9 @@ export function formatDate(rawDate) {
         hour = newDate.getHours() - 12;
         AMPM = 'PM'
     }
-    date = ({ ...date, time: (`${hour}:${newDate.getMinutes()} ${AMPM}`) });
+    let minutes = newDate.getMinutes();
+    minutes = minutes < 10 ? '0' + minutes.toString() : minutes
+    date = ({ ...date, time: (`${hour}:${minutes} ${AMPM}`) });
 
     return date;
 };
