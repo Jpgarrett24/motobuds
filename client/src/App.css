@@ -423,8 +423,71 @@ footer img{
   margin: 0;
 }
 
+#dashboard{
+  margin: 100px 0 0 0;
+}
+#dashboard #toggleView{
+  position: absolute;
+  font-size: 20pt;
+  top: 75px;
+  left: 20px;
+}
 #dashboard a{
   text-decoration: none;
+}
+#dashboard table{
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: black -5px 5px 20px;
+  display: inline-block;
+  min-height: 80vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+  width: 90%;
+}
+#dashboard table thead, #dashboard table tbody{
+  display: inline-block;
+  width: 100%;
+}
+#dashboard table thead{
+  background-color: rgba(122, 255, 222, .75);
+}
+#dashboard table tr{
+  display: inline-block;
+  color: #000;
+  width: 100%;
+  transition: 200ms ease-in-out all;
+}
+#dashboard table tbody tr:hover{
+  background-color: rgba(214, 214, 214);
+}
+
+#dashboard table th{
+  display: inline-block;
+  font-size: 15pt;
+  padding: 15px 0;
+}
+#dashboard table td{
+  display: inline-block;
+  padding: 15px 0;
+}
+#numRiders{
+  position: relative;
+  top: 5px;
+}
+#dashboard table th:nth-of-type(1), #dashboard table td:nth-of-type(1){
+  width: 30%;
+}
+#dashboard table th:nth-of-type(2), #dashboard table td:nth-of-type(2){
+  width: 30%;
+}
+#dashboard table th:nth-of-type(3), #dashboard table td:nth-of-type(3){
+  width: 15%;
+}
+#dashboard table th:nth-of-type(4), #dashboard table td:nth-of-type(4){
+  width: 15%;
+}
+#dashboard table th:nth-of-type(5), #dashboard table td:nth-of-type(5){
+  width: 10%;
 }
 
 #tripCard{
@@ -437,6 +500,7 @@ footer img{
   padding: 15px;
   width: 250px;
   transition: 200ms ease-in-out all;
+  vertical-align: top;
 }
 
 #tripCard:hover{
