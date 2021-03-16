@@ -25,7 +25,7 @@ export const MapContainer = (props) => {
     }
 
     useEffect(() => {
-        setTo({ location: { coordinates: [36.5843, -121.7535], type: "Point" }, city: "WeatherTech Raceway Laguna Seca, Salinas, CA" })
+        setTo({ location: { coordinates: [-121.7535, 36.5843], type: "Point" }, city: "WeatherTech Raceway Laguna Seca, Salinas, CA" })
     }, [setTo])
 
     const handleChange = (address) => {

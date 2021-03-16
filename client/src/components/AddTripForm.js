@@ -31,7 +31,7 @@ const AddTripForm = ({ setShowForm }) => {
 
     const submitForm = async (formData) => {
         const result = await tripsApi.create(formData, auth.user);
-        console.log(result);
+        setShowForm(false);
     }
 
     return (

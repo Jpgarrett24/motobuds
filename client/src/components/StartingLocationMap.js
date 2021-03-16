@@ -25,7 +25,7 @@ export const MapContainer = (props) => {
     };
 
     useEffect(() => {
-        setFrom({ location: { coordinates: [30.1346, -97.6359], type: "Point" }, city: "Circuit of the Americas, Austin, TX" })
+        setFrom({ location: { coordinates: [-97.6359, 30.1346], type: "Point" }, city: "Circuit of the Americas, Austin, TX" })
     }, [setFrom])
 
     const handleChange = (address) => {
