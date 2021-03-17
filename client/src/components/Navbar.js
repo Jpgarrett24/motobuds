@@ -9,7 +9,7 @@ import logo from '../assets/motobuds_title.png';
 import useAuth from '../auth/useAuth';
 import AddTripForm from './AddTripForm';
 
-const Navbar = () => {
+const Navbar = ({ setLoading }) => {
     const [showForm, setShowForm] = useState(false);
     const auth = useAuth();
 
@@ -38,7 +38,7 @@ const Navbar = () => {
                     </Link>
                 </nav>
             </header>
-            {showForm && <AddTripForm setShowForm={setShowForm} />}
+            {showForm && <AddTripForm setShowForm={setShowForm} setLoading={setLoading} />}
         </>
     );
 };

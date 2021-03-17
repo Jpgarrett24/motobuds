@@ -10,7 +10,7 @@ import tripsApi from '../api/trips';
 import GoogleMap from './GoogleMap';
 
 
-const AddTripForm = ({ setShowForm }) => {
+const AddTripForm = ({ setShowForm, setLoading }) => {
     const auth = useAuth();
     const [errors, setErrors] = useState([]);
     const [from, setFrom] = useState({});
@@ -32,6 +32,7 @@ const AddTripForm = ({ setShowForm }) => {
     const submitForm = async (formData) => {
         const result = await tripsApi.create(formData, auth.user);
         setShowForm(false);
+        setLoading(true);
     }
 
     return (

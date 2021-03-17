@@ -24,7 +24,7 @@ const Homescreen = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         getTrips();
-    }, []);
+    }, [loading]);
 
     useEffect(() => {
         if (auth.location && trips) return setLoading(false);
@@ -32,7 +32,7 @@ const Homescreen = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar setLoading={setLoading} />
             <main>
                 <div id="backgroundLogo" />
                 {loading ? <img src={moto} alt="Animation of a moving motorcylce to indiate loading." id="loadingGIF" /> :
