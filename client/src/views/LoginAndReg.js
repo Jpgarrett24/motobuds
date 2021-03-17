@@ -21,7 +21,7 @@ const LoginAndReg = () => {
                         <div id="backgroundLogo" />
                         <div>
                             <h1>Welcome to MotoBuds!</h1>
-                            <p>MotoBuds is the social networking app that allows you to easily join or create group motorcycle rides in your area.</p>
+                            <p>MotoBuds is the social networking app that allows you to easily join or create group motorcycle rides anywhere in the world.</p>
                             <p>Never ride alone again!</p>
                             <Link to="register" smooth={true} duration={500} offset={-50}>Sign Up</Link>
                         </div>
