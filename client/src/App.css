@@ -455,7 +455,6 @@ footer img{
   display: inline-block;
   color: #000;
   width: 100%;
-  transition: 200ms ease-in-out all;
 }
 #dashboard table tbody tr:hover{
   background-color: rgba(214, 214, 214);

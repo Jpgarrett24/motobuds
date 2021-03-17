@@ -72,7 +72,6 @@ const tripsApi = {
             .then((res) => res)
             .catch((err) => err.response);
 
-
         return result;
     },
 };

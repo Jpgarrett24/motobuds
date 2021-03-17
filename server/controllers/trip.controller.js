@@ -12,7 +12,7 @@ module.exports = {
     },
 
     getAll(req, res) {
-        Trip.find()
+        Trip.find().sort('startDate')
             .then((trips) => {
                 res.json(trips);
             })

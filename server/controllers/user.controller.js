@@ -40,7 +40,7 @@ module.exports = {
     },
 
     getMyRides(req, res) {
-        User.findById(req.params._id).select(['-password', '-__v']).populate('trips')
+        User.findById(req.params._id).select(['-password', '-__v']).populate({ path: 'trips', options: { sort: 'startDate' } })
             .then((user) => {
                 res.json(user);
             })
