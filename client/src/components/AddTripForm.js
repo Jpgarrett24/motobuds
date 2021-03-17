@@ -12,7 +12,6 @@ import GoogleMap from './GoogleMap';
 
 const AddTripForm = ({ setShowForm, setLoading }) => {
     const auth = useAuth();
-    const [errors, setErrors] = useState([]);
     const [from, setFrom] = useState({});
     const [to, setTo] = useState({});
     const [formProgress, setFormProgress] = useState(0);
@@ -30,7 +29,7 @@ const AddTripForm = ({ setShowForm, setLoading }) => {
     }, [formProgress]);
 
     const submitForm = async (formData) => {
-        const result = await tripsApi.create(formData, auth.user);
+        await tripsApi.create(formData, auth.user);
         setShowForm(false);
         setLoading(true);
     }
@@ -46,7 +45,6 @@ const AddTripForm = ({ setShowForm, setLoading }) => {
                         <h5>Select Date and Time for Ride</h5>
                         <DateTimePicker formData={formData} setFormData={setFormData} />
                         <button onClick={() => setFormProgress(formProgress + 1)} className="addFormButton">Next</button>
-                        {errors && errors.map((err, idx) => <p key={idx}>{err}</p>)}
                     </> :
 
                     formProgress === 1 ?
@@ -54,7 +52,6 @@ const AddTripForm = ({ setShowForm, setLoading }) => {
                             <h5>Add a meetup location</h5>
                             <StartingMapPicker setFrom={setFrom} />
                             <button onClick={() => setFormProgress(formProgress + 1)} className="addFormButton">Next</button>
-                            {errors && errors.map((err, idx) => <p key={idx}>{err}</p>)}
                         </> :
 
                         formProgress === 2 ?
@@ -62,7 +59,6 @@ const AddTripForm = ({ setShowForm, setLoading }) => {
                                 <h5>Add the ride destination</h5>
                                 <EndLocationMap setTo={setTo} />
                                 <button onClick={() => setFormProgress(formProgress + 1)} className="addFormButton">Next</button>
-                                {errors && errors.map((err, idx) => <p key={idx}>{err}</p>)}
                             </> :
 
                             formProgress === 3 ?
@@ -78,7 +74,6 @@ const AddTripForm = ({ setShowForm, setLoading }) => {
                                     >
                                         Next
                                     </button>
-                                    {errors && errors.map((err, idx) => <p key={idx}>{err}</p>)}
                                 </> :
                                 <>
                                     <h5 id="confirm">Does this look correct?</h5>
@@ -90,7 +85,6 @@ const AddTripForm = ({ setShowForm, setLoading }) => {
                                         <GoogleMap trip={formData} />
                                     </div>
                                     <button onClick={() => submitForm(formData)} className="addFormButton">Let's Ride!</button>
-                                    {errors && errors.map((err, idx) => <p key={idx}>{err}</p>)}
                                 </>
             }
         </div >

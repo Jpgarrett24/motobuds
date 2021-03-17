@@ -10,7 +10,7 @@ const TripTable = ({ trips }) => {
 
     useEffect(() => {
         return setTripsList(
-            trips.filter((trip) => trip.from.city.includes(search) || trip.to.city.includes(search))
+            trips.filter((trip) => trip.from.city.toLowerCase().includes(search.toLowerCase()) || trip.to.city.toLowerCase().includes(search.toLowerCase()))
         );
     }, [search, trips])
 
