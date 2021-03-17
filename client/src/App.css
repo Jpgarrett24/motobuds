@@ -424,7 +424,7 @@ footer img{
 }
 
 #dashboard{
-  margin: 100px 0 0 0;
+  margin: 75px 0 0 0;
 }
 #dashboard #toggleView{
   position: absolute;
@@ -432,6 +432,25 @@ footer img{
   top: 75px;
   left: 20px;
 }
+#dashboard #searchBar{
+  display: block;
+  font-size: 25pt;
+  margin: 5px 0 20px 0;
+  padding-left: 100px;
+  text-align: left;
+}
+#dashboard #searchBar label{
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+#dashboard #searchBar input{
+  display: inline-block;
+  font-size: 18pt;
+  height: 50px;
+  width: 250px;
+  vertical-align: top;
+}
+
 #dashboard a{
   text-decoration: none;
 }
