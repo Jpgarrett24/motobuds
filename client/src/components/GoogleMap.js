@@ -37,8 +37,6 @@ export const MapContainer = (props) => {
         let y = a + b * Math.log(zoomRef);
         setZoom(Math.round(y * 10) / 10);
 
-        console.log(`hypotenuse: ${zoomRef}`);
-
         const lat = (props.trip.from.location.coordinates[1] + props.trip.to.location.coordinates[1]) / 2;
         const lng = (props.trip.from.location.coordinates[0] + props.trip.to.location.coordinates[0]) / 2;
         setInitialCenter({
@@ -63,8 +61,6 @@ export const MapContainer = (props) => {
             setActiveMarker(null);
         }
     };
-
-    console.log(zoom);
 
     return (
         <>
